@@ -2,6 +2,7 @@
   "name": "spluginadd",
   "version": "1.0.0",
   "description": "",
+  "bin": "index.js",
   "main": "index.js",
   "dependencies": {
     "commander": "^2.9.0",
