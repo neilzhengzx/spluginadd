@@ -191,7 +191,7 @@ const startModify = async (source, packagename, resZips,  cb)=>{
 		}
 		let content = `${importss}
 export default plugins = {
-'\t'${exportss}
+${exportss}
 }
                 `;
 		try {
