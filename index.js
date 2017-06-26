@@ -24,7 +24,7 @@ function resetCode(source){
 	shell.exec(`cd ${source} && git checkout -- android/gradle.properties`);
 	shell.exec(`cd ${source} && git checkout -- android/app/build.gradle`);
 	shell.exec(`cd ${source} && git checkout -- android && rm -rf plugin && git checkout -- plugin`);
-	shell.exec(`cd ${source} && rm -rf js && git checkout -- js`);
+	shell.exec(`cd ${source} && rm -rf js && git checkout -- js && git checkout -- yarn.lock`);
 	shell.exec(`cd ${source} && rm -rf android/app/src/main &&  git checkout -- android/app/src`);
 
 	shell.exec(`cd ${source} && git checkout -- ios`);
