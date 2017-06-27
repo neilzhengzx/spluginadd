@@ -142,7 +142,7 @@ const startModify = async (source, packagename, resZips,  cb)=>{
 
 			let linkTimeout = null;
 			let result = await new Promise((resolve, reject) => {
-				shell.exec(`cd ${source} && npm install ${path} `, { silent: true }, (code, stdout, stderr) => {
+				shell.exec(`cd ${source} && npm install ${path} `, { silent: false }, (code, stdout, stderr) => {
 					if (code != 0) {
 						reject(stderr);
 					} else {
