@@ -147,7 +147,7 @@ const startModify = async (source, packagename, resZips,  cb)=>{
 						reject(stderr);
 					} else {
 						console.log(stdout);
-						shell.exec(`cd ${source} && react-native link ${pluginName}`, { async: true, silent: true }, (code, stdout, stderr) => {
+						shell.exec(`cd ${source} && react-native link ${pluginName}`, { async: true }, (code, stdout, stderr) => {
 							console.log(`react-native link ${pluginName} end`);
 							resolve();
 						});
@@ -160,7 +160,7 @@ const startModify = async (source, packagename, resZips,  cb)=>{
 								linkTimeout = null;
 								resolve();
 
-							}, 20000);
+							}, 60000);
 						}
 
 					}
