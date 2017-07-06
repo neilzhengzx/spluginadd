@@ -142,7 +142,7 @@ const startModify = async (source, packagename, resZips,  cb)=>{
 
 			let linkTimeout = null;
 			let result = await new Promise((resolve, reject) => {
-				shell.exec(`cd ${source} && yarn install file:${path} `, { silent: false }, (code, stdout, stderr) => {
+				shell.exec(`cd ${source} && yarn add file:${path} `, { silent: false }, (code, stdout, stderr) => {
 					if (code != 0) {
 						reject(stderr);
 					} else {
