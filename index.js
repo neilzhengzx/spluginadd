@@ -206,7 +206,7 @@ ${exportss}
 		let importss = '';
 		let exportss = '';
 		for (let api of apis) {
-			let module = api.substring('react-native-'.length).replace('-', '_');
+			let module = api.substring('react-native-'.length).replace(/-/g, '_');
 			importss += `import { default as ${module} } from '${api}'\n`;
 			exportss += `\t${module}:${module},\n`;
 		}
