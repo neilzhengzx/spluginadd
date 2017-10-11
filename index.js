@@ -127,8 +127,13 @@ const startModify = async (source, packagename, resZips,  cb)=>{
 				let files = fs.readdirSync(jsFilePath);
 				if (files.length == 0) return '请包涵至少一个控件';
 
-				for (let name of files) {
-					views.push(name.substring(0, name.length - '.js'.length));
+				for (const name of files) {
+					const fullname = path.join(jsFilePath, name);
+
+					const stats = fs.statSync(fullname);
+					if (!stats.isDirectory()) {
+						views.push(name.substring(0, name.length - '.js'.length));
+					}
 				}
 
 				//复制js代码到对应目录
