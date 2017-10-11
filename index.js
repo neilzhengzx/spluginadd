@@ -6,6 +6,7 @@ const _ = require('lodash');
 const pwd = process.cwd();
 const fs = require('fs');
 const xcode = require('xcode');
+const node_path = require('path');
 
 function collect(val, memo) {
 	memo.push(val);
@@ -128,7 +129,7 @@ const startModify = async (source, packagename, resZips,  cb)=>{
 				if (files.length == 0) return '请包涵至少一个控件';
 
 				for (const name of files) {
-					const fullname = path.join(jsFilePath, name);
+					const fullname = node_path.join(jsFilePath, name);
 
 					const stats = fs.statSync(fullname);
 					if (!stats.isDirectory()) {
@@ -137,7 +138,8 @@ const startModify = async (source, packagename, resZips,  cb)=>{
 				}
 
 				//复制js代码到对应目录
-				shell.exec(`cp ${jsFilePath}/* ${viewPlugin}/`);
+				shell.exec(`cp -rf ${jsFilePath}/* ${viewPlugin}/`);
+
 			} else {
 				apis.push(pluginName);
 			}
