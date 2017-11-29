@@ -132,7 +132,7 @@ const startModify = async (source, packagename, resZips,  cb)=>{
 					const fullname = node_path.join(jsFilePath, name);
 
 					const stats = fs.statSync(fullname);
-					if (!stats.isDirectory()) {
+					if (!stats.isDirectory() && name.endsWith('.js')) {
 						views.push(name.substring(0, name.length - '.js'.length));
 					}
 				}
