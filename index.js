@@ -243,7 +243,7 @@ ${exportss}
 
 const packageJson = require(`${RNPath}/package.json`);
 
-if(packageJson && packageJson.name == `RNSmobiler`){
+if(packageJson &&  packageJson.name && _.lowerCase(packageJson.name) == _.lowerCase(`RNSmobiler`)){
 	let resZips = [];
 
 	if(program.add.length > 0){
