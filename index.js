@@ -68,8 +68,8 @@ const startModify = async (source, packagename, resZips,  cb)=>{
 		try {
 			let packageJson = require(path + '/package.json');
 			let pluginName = packageJson.name;
-			let ios_resources = packageJson.ios_resources;
-			let ios_frameworks = packageJson.ios_frameworks;
+			let ios_resources = packageJson.ios_resources || [];
+			let ios_frameworks = packageJson.ios_frameworks || [];
 			let jsFilePath = path + '/__lib__';
 			let isView = fs.existsSync(jsFilePath);
 
@@ -111,7 +111,7 @@ const startModify = async (source, packagename, resZips,  cb)=>{
 					} else {
 						const { framework, opt } = lib;
 						if (framework && opt) {
-							let file = `${path}/ios/${framework}`
+							let file = `${path}/ios/${framework}`;
 							if (!fs.existsSync(file)) {
 								throw `插件${pluginName} 中 ${framework}文件不存在`;
 							};
