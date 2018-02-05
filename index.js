@@ -81,7 +81,7 @@ const startModify = async (source, packagename, resZips,  cb)=>{
 
 
 
-			if ( (_.isArray(ios_resources) || _.isArray(ios_frameworks))) {
+			if ( (_.isArray(ios_resources) && ios_resources.length > 0) || (_.isArray(ios_frameworks) && ios_frameworks.length > 0)) {
 				let myProj = xcode.project(projectPath);
 
 				myProj.parseSync();
