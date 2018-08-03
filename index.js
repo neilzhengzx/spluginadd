@@ -99,7 +99,7 @@ const startModify = async (source, packagename, resZips,  cb)=>{
 						if (!variantGroup[name]) variantGroup[name] = infoPlistVarGp;
 						myProj.addResourceFile(r, { variantGroup: true }, infoPlistVarGp.fileRef);
 					} else if (res.indexOf('.xcdatamodeld') != -1) {
-						myProj.addToXcVersionGroupSection(r);
+						myProj.addDataModelDocument(r);
 					} else {
 						myProj.addResourceFile(r);
 					}
