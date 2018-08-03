@@ -98,6 +98,8 @@ const startModify = async (source, packagename, resZips,  cb)=>{
 						let infoPlistVarGp = variantGroup[name] ? variantGroup[name] : myProj.addLocalizationVariantGroup(name);
 						if (!variantGroup[name]) variantGroup[name] = infoPlistVarGp;
 						myProj.addResourceFile(r, { variantGroup: true }, infoPlistVarGp.fileRef);
+					} else if (res.indexOf('.xcdatamodeld') != -1) {
+						myProj.addToXcVersionGroupSection(r);
 					} else {
 						myProj.addResourceFile(r);
 					}
