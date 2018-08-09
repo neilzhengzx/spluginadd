@@ -16,5 +16,7 @@
     "start": "node index.js"
   },
   "author": "",
-  "license": ""
+  "license": "ISC",
+  "peerDependencies": {
+  }
 }
