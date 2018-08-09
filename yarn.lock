@@ -143,9 +143,9 @@ wrappy@1:
   version "1.0.2"
   resolved "http://registry.npm.taobao.org/wrappy/download/wrappy-1.0.2.tgz#b5243d8f3ec1aa35f1364605bc0d1036e30ab69f"
 
-"xcode@git+https://github.com/neilzhengzx/cordova-node-xcode.git":
+"xcode@http://jx.searching-info.com:8442/Smobiler/cordova-node-xcode.git":
   version "1.0.1-dev"
-  resolved "git+https://github.com/neilzhengzx/cordova-node-xcode.git#2fbf6bdb89dd3ab6448135937ac08c7e3de8065b"
+  resolved "http://jx.searching-info.com:8442/Smobiler/cordova-node-xcode.git#2fbf6bdb89dd3ab6448135937ac08c7e3de8065b"
   dependencies:
     simple-plist "^0.2.1"
     uuid "3.0.1"
