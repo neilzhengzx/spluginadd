@@ -8,7 +8,7 @@
     "commander": "^2.9.0",
     "lodash": "^4.17.4",
     "shelljs": "^0.7.8",
-    "xcode": "http://jx.searching-info.com:8442/Smobiler/cordova-node-xcode.git"
+    "xcode": "git+https://github.com/neilzhengzx/cordova-node-xcode.git"
   },
   "devDependencies": {},
   "scripts": {
