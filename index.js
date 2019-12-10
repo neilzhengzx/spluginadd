@@ -142,6 +142,11 @@ const startModify = async (source, packagename, resZips,  cb)=>{
 				//复制js代码到对应目录
 				shell.exec(`cp -rf ${jsFilePath}/* ${viewPlugin}/`);
 
+				const jsModulePath = path + '/__module__';
+        const isModule = fs.existsSync(jsModulePath);
+        if (isModule) {
+          apis.push(pluginName);
+        }
 			} else {
 				apis.push(pluginName);
 			}
