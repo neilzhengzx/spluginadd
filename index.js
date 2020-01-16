@@ -79,7 +79,37 @@ const startModify = async (source, packagename, resZips,  cb)=>{
 				shell.exec(`gsed -i "s/com.rnsmobiler/${packagename}/g" \`grep -rl "com.rnsmobiler" ${path}/android/src/\``, { silent: true });
 			}
 
-
+			if (pluginName === 'react-native-sm-usbserial') {
+				const addUsbserial = shell.exec('gsed -i "s/android:host=\\"url\\" \\/>/' +
+				'android:host=\\"url\\" \\/> \\n' +
+				'            <\\/intent-filter>  \\n' +
+				'            <meta-data  \\n' +
+				'                android:name=\\"android.hardware.usb.action.USB_DEVICE_ATTACHED\\"  \\n' +
+				'                android:resource=\\"@xml\\/device_filter\\" \\/>  \\n' +
+				'            <intent-filter>  \\n' +
+				'                <action android:name=\\"android.hardware.usb.action.USB_DEVICE_ATTACHED\\" \\/>  ' +
+				'  /g" ' +
+				 source +
+				'/android/app/src/main/AndroidManifest.xml');
+				if (addUsbserial.code !== 0) {
+					throw `插件${pluginName}中添加参数错误`;
+				}
+			} else if (pluginName === 'react-native-sm-nfc') {
+				const addNfc = shell.exec('gsed -i "s/android:host=\\"url\\" \\/>/' +
+				'android:host=\\"url\\" \\/> \\n' +
+				'            <\\/intent-filter>  \\n' +
+				'            <meta-data  \\n' +
+				'                android:name=\\"android.nfc.action.TECH_DISCOVERED\\"  \\n' +
+				'                android:resource=\\"@xml\\/nfc_tech_filter\\" \\/>  \\n' +
+				'            <intent-filter>  \\n' +
+				'                <action android:name=\\"android.nfc.action.TECH_DISCOVERED\\" \\/>  ' +
+				'  /g" ' +
+				 source +
+				'/android/app/src/main/AndroidManifest.xml');
+				if (addNfc.code !== 0) {
+					throw `插件${pluginName}中添加参数错误`;
+				}
+			}
 
 			if ( (_.isArray(ios_resources) && ios_resources.length > 0) || (_.isArray(ios_frameworks) && ios_frameworks.length > 0)) {
 				let myProj = xcode.project(projectPath);
