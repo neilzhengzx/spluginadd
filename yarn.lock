@@ -146,7 +146,7 @@ wrappy@1:
 
 "xcode@git+https://github.com/neilzhengzx/cordova-node-xcode.git":
   version "1.0.3"
-  resolved "git+https://github.com/neilzhengzx/cordova-node-xcode.git#3b3384c0417d32f59fad57aa2e3921ce32949c0c"
+  resolved "git+https://github.com/neilzhengzx/cordova-node-xcode.git#1d8d961bebdfc9842f603bf6a6200018fcd773e7"
   dependencies:
     simple-plist "^0.2.1"
     uuid "^8.3.2"
