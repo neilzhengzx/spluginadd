@@ -141,6 +141,7 @@ const startModify = async (source, packagename, resZips,  cb)=>{
 					if (typeof lib == 'string') {
 						myProj.addFramework(lib);
 					} else {
+						const { framework, target, library, opt } = lib;
 						if (framework && opt) {
 							const file = `${path}/ios/${framework}`;
 							if (!fs.existsSync(file)) {
