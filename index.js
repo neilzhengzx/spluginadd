@@ -141,7 +141,7 @@ const startModify = async (source, packagename, resZips,  cb)=>{
 					if (typeof lib == 'string') {
 						myProj.addFramework(lib);
 					} else {
-						const { framework, target, library, opt } = lib;
+						const { framework, appextension, library, opt } = lib;
 						if (framework && opt) {
 							const file = `${path}/ios/${framework}`;
 							if (!fs.existsSync(file)) {
@@ -155,12 +155,12 @@ const startModify = async (source, packagename, resZips,  cb)=>{
 								throw `插件${pluginName} 中 ${library}文件不存在`;
 							}
 							myProj.addStaticLibrary(file, opt);
-						} else if (target && opt) {
-							const file = `${path}/ios/${target}`;
+						} else if (appextension && opt) {
+							const file = `${path}/ios/${appextension}`;
 							if (!fs.existsSync(file)) {
-								throw `插件${pluginName} 中 ${target}文件不存在`;
+								throw `插件${pluginName} 中 ${appextension}文件不存在`;
 							}
-							myProj.addTarget(file, opt.type);
+							myProj.addAppExtensions(file, opt);
 						}
 					}
 				}
